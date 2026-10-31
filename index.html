@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>ORO Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">ORO <span>SN15 · suite 160 · ORO-Bench v6</span></div>
+  <div id="strip" class="strip"></div>
+  <div class="actions">
+    <span id="fresh" class="muted"></span>
+    <button id="refresh" type="button">Refresh</button>
+    <button id="theme" type="button">Theme</button>
+    <button id="logout" type="button" hidden>Log out</button>
+  </div>
+</header>
+<nav class="tabs" role="tablist">
+  <button role="tab" data-tab="overview">Overview</button>
+  <button role="tab" data-tab="overall">Leaderboard</button>
+  <button role="tab" data-tab="races">Races</button>
+  <button role="tab" data-tab="hotkeys">My hotkeys</button>
+  <button role="tab" data-tab="credit">Credit</button>
+  <button role="tab" data-tab="coldkeys">Coldkeys</button>
+</nav>
+<main id="main"><p class="muted pad">Loading snapshot…</p></main>
+<footer id="foot" class="muted"></footer>
+<form id="login" class="login" hidden autocomplete="on">
+  <div class="brand">ORO <span>dashboard</span></div>
+  <label>Username <input id="login-user" name="username" autocomplete="username" required></label>
+  <label>Password <input id="login-pass" name="password" type="password" autocomplete="current-password" required></label>
+  <label class="chk"><input id="login-remember" type="checkbox"> Remember on this device</label>
+  <button type="submit">Log in</button>
+  <p id="login-err" class="err" role="alert"></p>
+</form>
+<dialog id="teamdlg" class="dlg">
+  <form method="dialog" id="teamform">
+    <div class="cardhead"><b id="team-title">Team</b><span id="team-who" class="addr"></span></div>
+    <label>Team <input id="team-name" list="team-list" maxlength="40" autocomplete="off" placeholder="new or existing team"></label>
+    <datalist id="team-list"></datalist>
+    <label>Discord names <span class="muted">(the team's; shared by its coldkeys)</span> <input id="team-discord" maxlength="120" placeholder="name1, name2"></label>
+    <label>Note <input id="team-note" maxlength="200" placeholder="optional"></label>
+    <div class="dlgbtns">
+      <button type="button" id="team-clear">Remove from team</button>
+      <button type="button" id="team-cancel">Cancel</button>
+      <button type="submit" id="team-save" class="primary">Save</button>
+    </div>
+    <p id="team-msg" class="err" role="alert"></p>
+  </form>
+</dialog>
+<script src="app.js"></script>
+</body>
+</html>
